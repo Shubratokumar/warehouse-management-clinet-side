@@ -1,0 +1,16 @@
+.banner{
+    background-color: #ff7700dc;
+}
+.title{
+    font-size: 48px;   
+}
+.sub-title{
+    font-style: italic;
+    font-size: 20px;
+}
+.salmoned{
+    color: salmon;
+}
+.cyaned{
+    color: cyan;
+}
