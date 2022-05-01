@@ -27,7 +27,17 @@
     font-size: 20px; 
     border-radius: 10px;
 }
-.white-btn:hover{
+.oranged-btn{
+    color: white;
+    background-color: #ff7700dc;
+    border: none; 
+    padding: 10px 15px;
+    font-weight: 400;
+    font-size: 20px; 
+    border-radius: 10px;
+
+}
+.oranged-btn:hover,.white-btn:hover{
     border-radius: 25px;
     box-shadow: 0px 24px 12px 10px rgba(0,0,0,0.1);
 }

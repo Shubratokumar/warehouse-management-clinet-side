@@ -10,7 +10,7 @@ const Inventories = () => {
         .then(data => setItems(data))
     },[])
     return (
-        <div className='inventories bg-info'>
+        <div className='inventories bg-info py-5'>
             <div className="container">
                 <h2 className='inventory-title text-center py-5'>Avaiable Inventory Items : {items.length}</h2>
                 <div className="items-container">

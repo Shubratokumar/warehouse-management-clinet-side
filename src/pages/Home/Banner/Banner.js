@@ -10,10 +10,10 @@ const Banner = () => {
                     <div className="col-12 col-lg-6 align-self-center">
                         <h2 className='title text-white'>
                             Welcome to 
-                            <p className='text-uppercase'>Apex <span style={{color: "crimson"}}>warehouse</span> <br /> management </p>
+                            <p className='text-uppercase'>Apex <span style={{color: "cyan"}}>warehouse</span> <br /> management </p>
                         </h2>                        
                         <p className='sub-title text-white'>Transfrom Your Business with AWM .</p>
-                        <button className='white-btn'>Browse more </button>
+                        <button className='white-btn'>Browse More </button>
                     </div>
                     <div className="col-12 col-lg-6 align-self-center py-3 my-3 rounded">
                         <img src={BannerImage} alt="" className="img-fluid" />
