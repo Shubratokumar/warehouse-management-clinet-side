@@ -2,7 +2,8 @@
     background-color: #ff7700dc;
 }
 .title{
-    font-size: 48px;   
+    font-size: 42px;
+    font-weight: bolder;  
 }
 .sub-title{
     font-style: italic;
@@ -13,4 +14,17 @@
 }
 .cyaned{
     color: cyan;
+}
+.white-btn{
+    color: #ff7700dc;
+    background-color: white;
+    border: none; 
+    padding: 10px 15px;
+    font-weight: 400;
+    font-size: 20px; 
+    border-radius: 10px;
+}
+.white-btn:hover{
+    border-radius: 25px;
+    box-shadow: 0px 24px 12px 10px rgba(0,0,0,0.1);
 }

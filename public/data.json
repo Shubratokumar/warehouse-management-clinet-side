@@ -1,0 +1,57 @@
+
+[
+    {
+      "_id": "626d6e265f2c59def3174f26",
+      "supplier": "Apple",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "name": "iMac",
+      "price": 1699,
+      "quantity": 9,
+      "image": "https://i.ibb.co/5BxxFTY/iMac-1.png"
+    },
+    {
+      "_id": "626d6e26e02e356f32666e50",
+      "supplier": "Apple",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "name": "Mac Book Air",
+      "price": 999,
+      "quantity": 15,
+      "image": "https://i.ibb.co/16bxYsL/Mac-Book-Air-1.png"
+    },
+    {
+      "_id": "626d6e261f68ac29279a82f3",
+      "supplier": "Apple",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "name": "Apple Watch Series 7",
+      "price": 699,
+      "quantity": 22,
+      "image": "https://i.ibb.co/9w6ss51/Apple-Watch-Series-7-1.png"
+    },
+    {
+      "_id": "626d6e264dff75a715ebc4cc",
+      "supplier": "Apple",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "name": "Air Pods Pro",
+      "price": 200,
+      "quantity": 30,
+      "image": "https://i.ibb.co/7Rxtc7B/Air-Pods-Pro-1-1.png"
+    },
+    {
+      "_id": "626d6e26949411ac78aff299",
+      "supplier": "Samsumg",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "name": "Samsung QLED",
+      "price": 400,
+      "quantity": 15,
+      "image": "https://i.ibb.co/wRP3rGy/samsung-qled.webp"
+    },
+    {
+      "_id": "626d6e268d0941cdc64e9ce6",
+      "supplier": "Xiaomi",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "name": "Xiaomi 11 Lite 5G NE",
+      "price": 399,
+      "quantity": 40,
+      "image": "https://i.ibb.co/9pFdzzH/Xiaomi-11-Lite-5-G-NE.png"
+    }
+  ]

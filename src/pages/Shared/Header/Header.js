@@ -22,7 +22,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light shadow p-3 mb-4 bg-body rounded-3 sticky-top">
+    <nav className="navbar navbar-expand-lg navbar-light shadow p-3 mb-3 bg-body rounded-3 sticky-top">
       <div className="container">
         <Link className="navbar-brand" to="/">
             <img src={BrandLogo} alt="" className="brand-logo"/>
@@ -39,7 +39,7 @@ const Header = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul className="navbar-nav  me-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav  me-auto mb-lg-0">
             <li className="nav-item">
               <CustomLink className="nav-link" aria-current="page" to="/">
                 Home
