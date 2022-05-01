@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NotFound from "./pages/NotFound/NotFound";
 import ManageInventory from "./pages/ManageInventory/ManageInventory";
 import InventoryItems from "./pages/InventoryItems/InventoryItems";
+import Footer from "./pages/Shared/Footer/Footer";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/inventory/:id" element={<ManageInventory/>}></Route>
         <Route path="*" element={<NotFound/>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }

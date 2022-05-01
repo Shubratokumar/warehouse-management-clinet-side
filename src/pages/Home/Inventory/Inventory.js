@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Inventory = ({item}) => {
     const {name, image, description, price, quantity, _id, supplier} = item;
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     return (
         <div className=' shadow p-2 mb-3 bg-body rounded'>
             <div className="card h-100">
