@@ -1,7 +1,13 @@
 .footer{
     font-size: 12px;
-    background-color: #4a4a4a;
+    background-color: #292929;
 }
 .developer{
     color: cyan;
+}
+.footer-icon{
+    padding-right: 10px;
+}
+.footer-icon:hover{
+    color: orange;
 }

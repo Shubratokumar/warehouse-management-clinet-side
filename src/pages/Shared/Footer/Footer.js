@@ -1,5 +1,10 @@
 import React from 'react';
-import './Footer.css'
+import './Footer.css';
+import { BsFacebook } from 'react-icons/bs';
+import { AiFillTwitterCircle } from 'react-icons/ai';
+import { FaGooglePlay } from 'react-icons/fa';
+import { BsLinkedin } from 'react-icons/bs';
+import { BsYoutube } from 'react-icons/bs';
 
 const Footer = () => {
     return (
@@ -13,6 +18,13 @@ const Footer = () => {
                     Apex <span className="oranged">Warehouse</span> management | </span> All rights reserved |
                     Privacy Policy
                     </p>
+                    <div className='fs-3 text-center mb-3'>
+                        <BsFacebook className='footer-icon' />
+                        <AiFillTwitterCircle className='fs-2 footer-icon'/>
+                        <FaGooglePlay className='footer-icon'/>
+                        <BsLinkedin className='footer-icon'/>
+                        <BsYoutube className='footer-icon'/>
+                    </div>
                 </div>
                 <div className="col-sm-12 col-lg-6">
                     <p className="footer-text">
