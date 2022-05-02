@@ -9,6 +9,7 @@ import Footer from "./pages/Shared/Footer/Footer";
 import Login from "./pages/Login/Login/Login";
 import Register from "./pages/Login/Register/Register";
 import { Toaster } from "react-hot-toast";
+import RequireAuth from './pages/Login/RequireAuth/RequireAuth';
 
 
 function App() {
@@ -20,7 +21,13 @@ function App() {
         <Route path="/" element={<Home/>}></Route>
         <Route path="/home" element={<Home/>}></Route>
         <Route path="/inventory" element={<InventoryItems/>}></Route>
-        <Route path="/inventory/:id" element={<ManageInventory/>}></Route>
+        <Route path="/inventory/:id" 
+        element={
+          <RequireAuth>
+            <ManageInventory/>
+          </RequireAuth>
+            }
+        ></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path= "/register" element={<Register></Register>}></Route>
         <Route path="*" element={<NotFound/>}></Route>

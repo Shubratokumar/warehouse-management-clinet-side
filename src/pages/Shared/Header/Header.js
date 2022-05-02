@@ -64,9 +64,9 @@ const Header = () => {
                   src={user?.photoURL ? user?.photoURL : ""}
                   alt=""
                 />
-                <CustomLink className="nav-link" to="user">
+                <p className="oranged mt-2 ps-2" to="">
                   {user?.displayName ? user?.displayName : ""}
-                </CustomLink>
+                </p>
                 <CustomLink onClick={handleSignOut} className="nav-link" to="/login">
                   Signout
                 </CustomLink>
