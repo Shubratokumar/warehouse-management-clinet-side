@@ -1,28 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
-// import SocialLogin from "./../SocialLogin/SocialLogin";
+import SocialLogin from "./../SocialLogin/SocialLogin";
+import {
+  useSignInWithEmailAndPassword,
+  useSendPasswordResetEmail,
+} from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
+import { toast } from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [signInWithEmailAndPassword, user, error] =
+    useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
+  const navigate = useNavigate();
+  const location = useLocation()
 
-    const handleEmailBlur = event  =>{
-        
-    }
-    const handlePasswordBlur = event =>{
+  const handleEmailBlur = (event) => {
+    setEmail(event.target.value);
+  };
+  const handlePasswordBlur = (event) => {
+    setPassword(event.target.value);
+  };
 
-    }
-    const handleSignIn = event =>{
+   // redirect 
+   let from = location.state?.from?.pathname || "/";
 
-    }
-    const resetPassword = () =>{
+  if (user) {
+    navigate(from, { replace: true });
+  }
 
+  const handleSignIn = async (event) => {
+    event.preventDefault();
+    await signInWithEmailAndPassword(email, password);
+    if (email && password) {
+      await toast.success("Successfully Login !!!");
     }
+    if (error) {
+      await toast.error("Oops!!! There is an error.");
+    }
+  };
+  const resetPassword = async () => {
+    if (email) {
+      await sendPasswordResetEmail(email);
+      await toast.success("Email Sent successfully !!!");
+    } else {
+      toast.error("Please enter your email first !!!");
+    }
+  };
   return (
     <div className="log-container ">
       <div className="log-form">
         <h1 className="log-title">Login</h1>
         <form onSubmit={handleSignIn}>
-          <div className="input-field">
+          <div className="input-field ">
             <label htmlFor="email">Email</label>
             <div>
               <input
@@ -50,7 +84,7 @@ const Login = () => {
             Login
           </button>
         </form>
-        <p className="mt-3">
+        <p className="mt-3 px-3">
           New to Apex Warehouse Management?{" "}
           <Link className="text-decoration-none oranged" to="/register">
             Create New Account
@@ -65,7 +99,7 @@ const Login = () => {
             Reset Password
           </button>
         </p>
-        {/* <SocialLogin></SocialLogin> */}
+        <SocialLogin></SocialLogin>
       </div>
     </div>
   );

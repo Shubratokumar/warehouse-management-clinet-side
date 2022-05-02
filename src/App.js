@@ -8,12 +8,14 @@ import InventoryItems from "./pages/InventoryItems/InventoryItems";
 import Footer from "./pages/Shared/Footer/Footer";
 import Login from "./pages/Login/Login/Login";
 import Register from "./pages/Login/Register/Register";
+import { Toaster } from "react-hot-toast";
 
 
 function App() {
   return (
     <div>
-      <Header></Header>
+      <Header/>
+      <Toaster/>
       <Routes>      
         <Route path="/" element={<Home/>}></Route>
         <Route path="/home" element={<Home/>}></Route>
@@ -23,7 +25,7 @@ function App() {
         <Route path= "/register" element={<Register></Register>}></Route>
         <Route path="*" element={<NotFound/>}></Route>
       </Routes>
-      <Footer></Footer>
+      <Footer/>
     </div>
   );
 }
