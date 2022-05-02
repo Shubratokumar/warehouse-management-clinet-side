@@ -7,7 +7,7 @@ const Inventory = ({item}) => {
     return (
         <div className=' shadow p-2 mb-3 bg-body rounded'>
             <div className="card h-100">
-                <img height="400px" className='w-100' src={image}  alt="" />
+                <img height="300px" className='w-100' src={image}  alt="" />
                 <div className="card-body">
                 <h5 className="card-title fs-3">{name}</h5>
                 <hr />

@@ -65,7 +65,7 @@
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 24%, rgba(0,212,255,1) 100%);
     border-radius: 25px;
-    transition: border-radius ease-in-out 0.5s;   
+    transition: border-radius ease-in-out 0.4s;   
   }
   .social-log {
     height: 55px;
@@ -88,7 +88,7 @@
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 24%, rgba(0,212,255,1) 100%);
     border-radius: 25px;
-    transition: border-radius ease-in-out 0.5s;   
+    transition: border-radius ease-in-out 0.4s;   
   }
   .social-log img {
     position: absolute;

@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Inventory from '../Inventory/Inventory';
 import "./Inventories.css";
+import useItems from './../../../hooks/useItems';
 
 const Inventories = () => {
-    const [items, setItems] = useState([]);
-    useEffect(()=>{
-        fetch("data.json")
-        .then(res => res.json())
-        .then(data => setItems(data))
-    },[])
+    const [ items ] = useItems()
+    
     return (
         <div className='inventories bg-info py-5'>
             <div className="container">

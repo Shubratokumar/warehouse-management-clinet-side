@@ -10,7 +10,7 @@ import Login from "./pages/Login/Login/Login";
 import Register from "./pages/Login/Register/Register";
 import { Toaster } from "react-hot-toast";
 import RequireAuth from './pages/Login/RequireAuth/RequireAuth';
-
+import UpdateItem from './pages/UpdateItem/UpdateItem';
 
 function App() {
   return (
@@ -22,12 +22,13 @@ function App() {
         <Route path="/home" element={<Home/>}></Route>
         <Route path="/inventory" element={<InventoryItems/>}></Route>
         <Route path="/inventory/:id" 
-        element={
-          <RequireAuth>
-            <ManageInventory/>
-          </RequireAuth>
-            }
-        ></Route>
+          element={
+            <RequireAuth>
+              <UpdateItem/>
+            </RequireAuth>
+          }
+        ></Route>        
+        <Route path="/manageinventory" element={<ManageInventory/>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path= "/register" element={<Register></Register>}></Route>
         <Route path="*" element={<NotFound/>}></Route>
