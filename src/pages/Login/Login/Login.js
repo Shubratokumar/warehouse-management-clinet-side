@@ -54,7 +54,7 @@ const Login = () => {
   return (
     <div className="log-container ">
       <div className="log-form">
-        <h1 className="log-title">Login</h1>
+        <h1 className="log-title">Login to your account</h1>
         <form onSubmit={handleSignIn}>
           <div className="input-field ">
             <label htmlFor="email">Email</label>

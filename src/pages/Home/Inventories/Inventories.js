@@ -9,11 +9,10 @@ const Inventories = () => {
     return (
         <div className='inventories bg-info py-5'>
             <div className="container">
-                <h2 className='inventory-title text-center py-5'>Avaiable Inventory Items : {items.length}</h2>
+                <h2 className='inventory-title text-center py-5'>Avaiable Inventory Items</h2>
                 <div className="items-container">
                     {
-                        items.map(item => <Inventory item={item} key={item._id}></Inventory>)
-                        // items.slice(0,3).map(item => <Inventory item={item} key={item._id}></Inventory>)
+                        items?.slice(0,6).map(item => <Inventory item={item} key={item._id}></Inventory>)
                     }
                 </div>
             </div>

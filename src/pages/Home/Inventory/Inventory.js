@@ -11,7 +11,7 @@ const Inventory = ({item}) => {
                 <div className="card-body">
                 <h5 className="card-title fs-3">{name}</h5>
                 <hr />
-                <p className="card-text fs-5 fst-italic justified">{description}</p>
+                <p className="card-text fs-5 fst-italic justified">{description.slice(0,260)} ...</p>
                 <p className="card-text"><span className="salmoned">Price</span> : $ {price}</p>
                 <p className="card-text"><span className="salmoned">Quantity</span> : {quantity}</p>                
                 <p className="card-text"><span className="salmoned">Supplier</span> : {supplier}</p>                

@@ -3,8 +3,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 24%, rgba(0,212,255,1) 100%);
+    background: rgb(6, 0, 129);
+    background: linear-gradient(90deg,rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
   }
   
   .log-form {
@@ -39,7 +39,7 @@
   .input-field input {
     width: 415px;
     height: 55px;
-    border-radius: 5px;
+    border-radius: 25px;
     padding: 15px;
     font-size: 20px;
     border: 0.5px solid salmon;
@@ -62,8 +62,8 @@
   }
   .submit-btn:hover{
     color: white;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 24%, rgba(0,212,255,1) 100%);
+    background: rgb(6, 0, 129);
+    background: linear-gradient(90deg,rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
     border-radius: 25px;
     transition: border-radius ease-in-out 0.4s;   
   }
@@ -85,8 +85,8 @@
   }
   .social-log:hover{
     color: whitesmoke;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 24%, rgba(0,212,255,1) 100%);
+    background: rgb(6, 0, 129);
+    background: linear-gradient(90deg,rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
     border-radius: 25px;
     transition: border-radius ease-in-out 0.4s;   
   }
