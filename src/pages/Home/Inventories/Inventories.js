@@ -4,7 +4,7 @@ import "./Inventories.css";
 import useItems from './../../../hooks/useItems';
 
 const Inventories = () => {
-    const [ items ] = useItems()
+    const [ items ] = useItems();
     
     return (
         <div className='inventories bg-info py-5'>
