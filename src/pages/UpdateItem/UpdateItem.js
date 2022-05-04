@@ -52,7 +52,7 @@ const UpdateItem = () => {
 
   return (
     <div className="update-container">
-      <div className="container">
+      <div className="container my-3">
         <div className="row">
           <div className="col-12 col-lg-6 align-self-center py-3 my-3 rounded">
             <img src={image} alt="" className="img-fluid rounded-3 shadow" />

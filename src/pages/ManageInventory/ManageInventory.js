@@ -1,9 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { AiOutlineDelete } from 'react-icons/ai';
+import { AiOutlineRight } from 'react-icons/ai';
+import { useNavigate } from "react-router-dom";
 
 const ManageInventory = () => {
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     // Load data by useing IIFE
     (async () => {
@@ -11,12 +14,14 @@ const ManageInventory = () => {
       setProducts(data);
     })();
   }, []);
-
+ const handleRemove = (id) =>{
+     console.log(id)
+ }
 
   return (
     <div>
-      <div className="container">
-        <h2 className="text-center my-5">Manage Inventory Products</h2>
+      <div className="container my-3">
+        <h2 className="text-center text-info my-5">Manage Inventory Products</h2>
         <div className="table-responsive">
             <table class="table align-middle table-hover ">
             <thead class="table-dark">
@@ -33,13 +38,13 @@ const ManageInventory = () => {
                 {
                     products?.map(product => {                        
                         return(
-                            <tr className="col align-self-center">
+                            <tr key={product._id} className="col align-self-center">
                                 <td>{product.name}</td>
-                                <td className="w-25"><img className="w-50" src={product.image} alt="" /></td>
+                                <td className="w-25 h-50"><img className="w-50" src={product.image} alt="" /></td>
                                 <td>{product.supplier}</td>
                                 <td>$ {product.price}</td>
                                 <td>{product.quantity}</td>
-                                <td><button className="oranged-btn"><AiOutlineDelete/></button></td>
+                                <td><button onClick={()=>handleRemove(product._id)} className="oranged-btn"><AiOutlineDelete/></button></td>
                             </tr>
                         )
                     })
@@ -47,6 +52,9 @@ const ManageInventory = () => {
             </tbody>
             </table>
         </div>
+      </div>
+      <div className="container text-end my-3">
+          <button type='link' onClick={()=> navigate("/additem")} className="oranged-btn">Add a New Inventory <AiOutlineRight/></button>
       </div>
     </div>
   );
