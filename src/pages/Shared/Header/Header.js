@@ -50,11 +50,22 @@ const Header = () => {
                 Blogs
               </CustomLink>
             </li>
-            <li className="nav-item">
-              <CustomLink className="nav-link" to="/about">
-                About
-              </CustomLink>
-            </li>            
+            {
+              user?.uid && 
+              <>
+                <li className="nav-item">
+                  <CustomLink className="nav-link" to="/manageinventory">
+                    Manage Inventories
+                  </CustomLink>
+                </li>
+                <li className="nav-item">
+                  <CustomLink className="nav-link" to="/additem">
+                    Add Inventory
+                  </CustomLink>
+                </li>
+              </>
+            }
+                        
           </ul>
           <div className="d-flex">
             {user?.uid ? (
@@ -67,22 +78,26 @@ const Header = () => {
                 <p className="salmoned mt-2 ps-2" to="">
                   {user?.displayName ? user?.displayName : ""}
                 </p>
-                <CustomLink onClick={handleSignOut} className="nav-link" to="/login">
-                  Signout
-                </CustomLink>
+                <ul className="navbar-nav">
+                    <li className="nav-item">
+                      <CustomLink className="nav-link" to="/myitems">
+                        My Items
+                      </CustomLink>
+                    </li>
+                    <li className="nav-item">
+                      <CustomLink onClick={handleSignOut} className="nav-link" to="/login">
+                        Signout
+                      </CustomLink>
+                    </li>
+                </ul>     
               </>
             ) : (
                 <>
-                    <ul className="navbar-nav">
+                    <ul className="navbar-nav">                        
                         <li className="nav-item">
-                        <CustomLink className="nav-link" to="/about">
-                            About
-                        </CustomLink>
-                        </li>
-                        <li className="nav-item">
-                        <CustomLink className="nav-link" to="/login">
-                            Login
-                        </CustomLink>
+                          <CustomLink className="nav-link" to="/login">
+                              Login
+                          </CustomLink>
                         </li>
                     </ul>                    
                 </>

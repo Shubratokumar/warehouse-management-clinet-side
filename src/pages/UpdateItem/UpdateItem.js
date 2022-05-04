@@ -1,19 +1,18 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useItem from "../../hooks/useItem";
+import { AiOutlineRight } from 'react-icons/ai';
 
 const UpdateItem = () => {
   const [item, setItem] = useItem();
-  const { id } = useParams();
   const { name, image, description, price, supplier, sold } = item;
-  // const [product, setProduct] = useState({});
-
+  const navigate = useNavigate();
+  const { id } = useParams();
 
   const handleDelivered = (id) => {
     const { quantity, ...rest} = item;
     const newQuantity = parseInt(quantity) - 1;
     const newItem = {...rest, quantity: newQuantity};
-    console.log(newItem)
     setItem(newItem)
     const url = `http://localhost:5000/products/${id}`;
     fetch(url, {
@@ -35,21 +34,20 @@ const UpdateItem = () => {
     const { quantity, ...rest} = item;
     const newQuantity = Number(quantity) + Number(stockQuantity);
     const newItem = {...rest, quantity: newQuantity};
-    console.log(newItem)
     setItem(newItem)   
-      const url = `http://localhost:5000/products/${id}`;
-      fetch(url, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newItem),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-        });
-        event.target.reset()
+    const url = `http://localhost:5000/products/${id}`;
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newItem),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+      event.target.reset()
   }
 
   return (
@@ -115,6 +113,9 @@ const UpdateItem = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="container text-end my-3">
+          <button type='link' onClick={()=> navigate("/manageinventory")} className="oranged-btn">Manage Inventories <AiOutlineRight/></button>
       </div>
     </div>
   );
