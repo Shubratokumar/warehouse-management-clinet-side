@@ -1,27 +1,56 @@
 import React from "react";
 import './Additem.css';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './../../firebase.init';
+import  axios  from 'axios';
+import { toast } from 'react-hot-toast';
 
 const AddItem = () => {
+  const [user ] = useAuthState(auth);
 
-    const handleAddInventory = (e) =>{
-        e.preventDefault()
-        const product = {
-            name: e.target.name.value,
-            description: e.target.description.value,
-            supplier: e.target.supplier.value,
-            price: e.target.price.value,
-            quantity: e.target.quantity.value,
-            sold: e.target.sold.value,
-            image: e.target.image.value
+
+  const handleAddInventory = (e) =>{
+      e.preventDefault()
+      const product = {
+          email: user?.email,
+          name: e.target.name.value,
+          description: e.target.description.value,
+          supplier: e.target.supplier.value,
+          price: e.target.price.value,
+          quantity: e.target.quantity.value,
+          sold: e.target.sold.value,
+          image: e.target.image.value
+      }
+      console.log(product)
+
+      /* axios.post(`http://localhost:5000/product`, product)
+      .then(response => {
+        const {data} = response;
+        if(data.insertedId){
+          toast.success("Successfully added a new inventory!!!")
         }
-        
-    }
+      }) */
+      
+  }
   return (
     <div className="add-container py-5">
       <div className="container">
         <h2 className="text-center text-white my-5">Add A New Inventory</h2>
         <div className="form-container w-50 mx-auto my-4 shadow p-4 rounded">
           <form onSubmit={handleAddInventory}>
+            <div className="mb-3">
+              <label className="form-label">
+                Your Email
+              </label>
+              <input
+                type="text"
+                value={user?.email}
+                className="form-control"
+                readOnly
+                disabled
+                required
+              />
+            </div>
             <div className="mb-3">
               <label className="form-label">
                 Product Name
