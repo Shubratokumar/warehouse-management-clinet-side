@@ -1,0 +1,7 @@
+.add-container{
+    background: rgb(199, 13, 109);
+    background: linear-gradient(90deg, rgb(158, 20, 92) 0%, rgb(163, 61, 84) 50%, rgba(222,182,171,1) 100%);
+}
+.form-container{
+    background-color: #FFEEEE;
+}

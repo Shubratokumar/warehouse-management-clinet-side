@@ -1,4 +1,5 @@
 import React from "react";
+import './Additem.css';
 
 const AddItem = () => {
 
@@ -13,13 +14,13 @@ const AddItem = () => {
             sold: e.target.sold.value,
             image: e.target.image.value
         }
-        console.log(product)
+        
     }
   return (
-    <div style={{'backgroundColor': "orchid"}} className="add-container py-5">
+    <div className="add-container py-5">
       <div className="container">
-        <h2 className="text-center my-5">Add A New Inventory</h2>
-        <div className="form-container w-50 mx-auto my-4 bg-info shadow p-4 rounded">
+        <h2 className="text-center text-white my-5">Add A New Inventory</h2>
+        <div className="form-container w-50 mx-auto my-4 shadow p-4 rounded">
           <form onSubmit={handleAddInventory}>
             <div className="mb-3">
               <label className="form-label">

@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useItem from "../../hooks/useItem";
 import { AiOutlineRight } from 'react-icons/ai';
+import { toast } from 'react-hot-toast';
 
 const UpdateItem = () => {
   const [item, setItem] = useItem();
@@ -11,43 +12,51 @@ const UpdateItem = () => {
 
   const handleDelivered = (id) => {
     const { quantity, ...rest} = item;
-    const newQuantity = parseInt(quantity) - 1;
-    const newItem = {...rest, quantity: newQuantity};
-    setItem(newItem)
-    const url = `http://localhost:5000/products/${id}`;
-    fetch(url, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newItem),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+    if(quantity > 0){
+      const newQuantity = parseInt(quantity) - 1;
+      const newItem = {...rest, quantity: newQuantity};
+      setItem(newItem)
+      const url = `http://localhost:5000/products/${id}`;
+      fetch(url, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newItem),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        });
+    } else if(quantity === 0){
+      toast.error("Oops!!! Out of stock")
+    }
   };
 
   const handleStockUpdate = (event) =>{
     event.preventDefault()
     const stockQuantity = event.target.quantity.value;
     const { quantity, ...rest} = item;
-    const newQuantity = Number(quantity) + Number(stockQuantity);
-    const newItem = {...rest, quantity: newQuantity};
-    setItem(newItem)   
-    const url = `http://localhost:5000/products/${id}`;
-    fetch(url, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newItem),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
-      event.target.reset()
+    if(stockQuantity > 0){
+      const newQuantity = Number(quantity) + Number(stockQuantity);
+      const newItem = {...rest, quantity: newQuantity};
+      setItem(newItem)   
+      const url = `http://localhost:5000/products/${id}`;
+      fetch(url, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newItem),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        });        
+    } else if (stockQuantity < 0){
+      toast.error("Please provide positive number to update stock.")
+    }
+    event.target.reset()
   }
 
   return (
