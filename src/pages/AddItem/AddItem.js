@@ -22,14 +22,13 @@ const AddItem = () => {
           image: e.target.image.value
       }
       console.log(product)
-
-      /* axios.post(`http://localhost:5000/product`, product)
+      axios.post(`http://localhost:5000/product`, product)
       .then(response => {
         const {data} = response;
         if(data.insertedId){
           toast.success("Successfully added a new inventory!!!")
         }
-      }) */
+      })
       
   }
   return (
@@ -48,7 +47,6 @@ const AddItem = () => {
                 className="form-control"
                 readOnly
                 disabled
-                required
               />
             </div>
             <div className="mb-3">

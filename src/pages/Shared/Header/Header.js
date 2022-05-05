@@ -75,7 +75,7 @@ const Header = () => {
                   src={user?.photoURL ? user?.photoURL : ""}
                   alt=""
                 />
-                <p className="salmoned mt-2 ps-2" to="">
+                <p className="salmoned mt-2 px-2" to="">
                   {user?.displayName ? user?.displayName : ""}
                 </p>
                 <ul className="navbar-nav">

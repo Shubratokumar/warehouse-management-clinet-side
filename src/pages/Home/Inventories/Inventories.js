@@ -1,12 +1,12 @@
 import React from 'react';
 import Inventory from '../Inventory/Inventory';
 import "./Inventories.css";
-import useItems from './../../../hooks/useItems';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineRight } from 'react-icons/ai';
+import useProducts from './../../../hooks/useProducts';
 
 const Inventories = () => {
-    const [ items ] = useItems();
+    const [ products ] = useProducts(); 
     const navigate = useNavigate();
     
     return (
@@ -15,7 +15,7 @@ const Inventories = () => {
                 <h2 className='inventory-title text-center py-5'>Avaiable Inventory Items</h2>
                 <div className="items-container">
                     {
-                        items?.slice(0,6).map(item => <Inventory item={item} key={item._id}></Inventory>)
+                        products?.slice(0,6).map(item => <Inventory item={item} key={item._id}></Inventory>)
                     }
                 </div>
             </div>

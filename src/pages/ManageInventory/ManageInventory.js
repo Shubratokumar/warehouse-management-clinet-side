@@ -1,21 +1,27 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { AiOutlineDelete } from 'react-icons/ai';
 import { AiOutlineRight } from 'react-icons/ai';
 import { useNavigate } from "react-router-dom";
+import useProducts from './../../hooks/useProducts';
 
 const ManageInventory = () => {
-  const [products, setProducts] = useState([]);
-  const navigate = useNavigate();
-  useEffect(() => {
-    // Load data by useing IIFE
-    (async () => {
-      const { data } = await axios.get(`http://localhost:5000/products`);
-      setProducts(data);
-    })();
-  }, []);
+  const [products, setProducts] = useProducts([]);  
+  const navigate = useNavigate();  
+
  const handleRemove = (id) =>{
-     console.log(id)
+   const removeProduct = window.confirm(`Are you sure to remove this inventory ?`);
+   if(removeProduct){
+     const url = `http://localhost:5000/product/${id}`;
+    fetch(url, {
+      method : "DELETE"
+    })
+    .then(res => res.json())
+    .then(data => {
+      const remainingProducts = products.filter(product => product._id !== id)
+      setProducts(remainingProducts)
+    })
+   }  
+
  }
 
   return (
@@ -23,8 +29,8 @@ const ManageInventory = () => {
       <div className="container my-3">
         <h2 className="text-center text-info my-5">Manage Inventory Products</h2>
         <div className="table-responsive">
-            <table class="table align-middle table-hover ">
-            <thead class="table-dark">
+            <table className="table align-middle table-hover ">
+            <thead className="table-dark">
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Image</th>
@@ -44,7 +50,32 @@ const ManageInventory = () => {
                                 <td>{product.supplier}</td>
                                 <td>$ {product.price}</td>
                                 <td>{product.quantity}</td>
-                                <td><button onClick={()=>handleRemove(product._id)} className="oranged-btn"><AiOutlineDelete/></button></td>
+                                <td>
+                                <button className="oranged-btn" onClick={()=>handleRemove(product._id)}><AiOutlineDelete/></button>
+                                  {/* <>
+                                   Button trigger modal  
+                                    <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                      
+                                    </button>
+                                         Modal 
+                                    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                      <div className="modal-dialog">
+                                        <div className="modal-content">
+                                          <div className="modal-header">
+                                            <h5 className="modal-title text-danger" id="exampleModalLabel">Confirmation Message !!!</h5>
+                                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                          </div>
+                                          <div className="modal-body">                                            
+                                            Are you sure to remove {product.name} from inventory ?
+                                          </div>
+                                          <div className="modal-footer">
+                                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>                                            
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </> */}
+                                </td>
                             </tr>
                         )
                     })
@@ -55,7 +86,7 @@ const ManageInventory = () => {
       </div>
       <div className="container text-end my-3">
           <button type='link' onClick={()=> navigate("/additem")} className="oranged-btn">Add a New Inventory <AiOutlineRight/></button>
-      </div>
+      </div>       
     </div>
   );
 };
