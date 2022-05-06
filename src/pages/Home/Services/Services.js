@@ -6,7 +6,7 @@ import { FaUserAlt } from 'react-icons/fa';
 
 const Services = () => {
     return (
-        <div style={{backgroundColor: "gray"}} className='services py-5'>
+        <div className='services py-5'>
             <div className="container">
                 <div className="row g-4">
                     <div className="col-12 col-lg-6 align-self-center">
@@ -21,21 +21,21 @@ const Services = () => {
                         <div className='d-flex mb-3'>
                             <div className='pe-3'><GrGrow className='icon'></GrGrow></div>
                             <div> 
-                                <h3 className='oranged '>Faster Growth</h3>
+                                <h3>Faster Growth</h3>
                                 <p className=' text-white'>With AWS solutions accelerate your business growth.</p>
                             </div>
                         </div>
                         <div className='d-flex mb-3'>
                             <div className='pe-3'><RiCustomerService2Line className='icon'></RiCustomerService2Line> </div>
                             <div> 
-                                <h3 className='oranged '>Serve Customers</h3>
+                                <h3 >Serve Customers</h3>
                                 <p className=' text-white'>We always support our customer any situation, wherever they are. </p>
                             </div>
                         </div>
                         <div className='d-flex '>
                             <div className='pe-3'><FaUserAlt className='icon'></FaUserAlt> </div>
                             <div> 
-                                <h3 className='oranged '>Supply Manpower</h3>
+                                <h3 >Supply Manpower</h3>
                                 <p className=' text-white'>We provide manpower as well you don't need to think about it.</p>
                             </div>
                         </div>

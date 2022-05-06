@@ -1,3 +1,7 @@
+.services{
+    background: rgb(102,57,166);
+    background: linear-gradient(90deg, rgba(102,57,166,1) 0%, rgba(178,129,235,1) 72%, rgba(185,187,223,1) 100%);
+}
 .icon{
     font-size: 52px;
 }

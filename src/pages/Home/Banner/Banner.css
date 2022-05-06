@@ -1,5 +1,6 @@
 .banner{
-    background-color: #ff7700dc;
+    background: rgb(238,93,26);
+background: linear-gradient(90deg, rgba(238,93,26,1) 0%, rgba(245,152,45,1) 50%, rgba(255,186,126,1) 100%);
 }
 .title{
     font-size: 42px;

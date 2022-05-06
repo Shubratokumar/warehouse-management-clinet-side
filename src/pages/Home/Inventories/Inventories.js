@@ -10,7 +10,7 @@ const Inventories = () => {
     const navigate = useNavigate();
     
     return (
-        <div className='inventories bg-info py-5'>
+        <div className='inventories  py-5'>
             <div className="container">
                 <h2 className='inventory-title text-center py-5'>Avaiable Inventory Items</h2>
                 <div className="items-container">

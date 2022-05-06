@@ -1,6 +1,7 @@
-/* .inventories{
-
-} */
+.inventories{
+    background: rgb(133,88,111);
+    background: linear-gradient(90deg, rgba(133,88,111,1) 0%, rgba(172,125,136,1) 50%, rgba(222,182,171,1) 100%);
+}
 .inventory-title{
     font-size: 42px;
 }

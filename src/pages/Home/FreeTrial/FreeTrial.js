@@ -1,8 +1,9 @@
 import React from 'react';
+import "./FreeTrial.css"
 
 const FreeTrial = () => {
     return (
-        <div className='bg-primary text-white py-5'>
+        <div className='free-trial text-white py-5'>
             <div className='container'>
                 <div className="row ">
                     <div className="col-sm-12 col-lg-6">
