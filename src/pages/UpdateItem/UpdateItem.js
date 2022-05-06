@@ -80,6 +80,7 @@ const UpdateItem = () => {
                 <p className="card-text fs-5 fst-italic justified">
                   {description}
                 </p>
+                <hr />
                 <p className="card-text">
                   <span className="salmoned">Price</span> : $ {price}
                 </p>

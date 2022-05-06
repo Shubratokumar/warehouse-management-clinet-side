@@ -4,24 +4,36 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { AiOutlineDelete } from "react-icons/ai";
+import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
 
 const MyItems = () => {
   const [products, setProducts] = useState([]);
   const [user] = useAuthState(auth);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const email = user?.email;
     // using IIFE
     (async () => {
       const url = `http://localhost:5000/product?email=${email}`;
-      const { data } = await axios.get(url, {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem('accessToken')}`
+      try{
+        const { data } = await axios.get(url, {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+          }
+        });
+        setProducts(data);
+      }
+      catch(error){
+        if(error.response.status === 401 || error.response.status === 403){
+          toast.error(error.message);
+          signOut(auth);
+          navigate("/login");
         }
-      });
-      setProducts(data);
+      }
     })();
-  }, [user]);
+  }, [user,navigate]);
 
   const handleRemove = (id) => {
     const removeProduct = window.confirm(

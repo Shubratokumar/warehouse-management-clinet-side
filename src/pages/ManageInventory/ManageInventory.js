@@ -39,6 +39,7 @@ const ManageInventory = () => {
                     <th scope="col">Supplier</th>
                     <th scope="col">Price</th>
                     <th scope="col">Quantity</th>
+                    <th scope="col">Update</th>                
                     <th scope="col">Remove</th>                
                 </tr>
             </thead>
@@ -52,6 +53,9 @@ const ManageInventory = () => {
                                 <td>{product.supplier}</td>
                                 <td>$ {product.price}</td>
                                 <td>{product.quantity}</td>
+                                <td>
+                                <button className="oranged-btn" onClick={()=>navigate(`/inventory/${product._id}`)}>Update stock</button>                                 
+                                </td>
                                 <td>
                                 <button className="oranged-btn" onClick={()=>handleRemove(product._id)}><AiOutlineDelete/></button>                                 
                                 </td>

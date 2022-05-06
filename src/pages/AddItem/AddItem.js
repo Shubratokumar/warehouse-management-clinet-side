@@ -21,7 +21,6 @@ const AddItem = () => {
           sold: e.target.sold.value,
           image: e.target.image.value
       }
-      console.log(product)
       axios.post(`http://localhost:5000/product`, product)
       .then(response => {
         const {data} = response;
@@ -29,7 +28,7 @@ const AddItem = () => {
           toast.success("Successfully added a new inventory!!!")
         }
       })
-      
+      e.target.reset()    
   }
   return (
     <div className="add-container py-5">
