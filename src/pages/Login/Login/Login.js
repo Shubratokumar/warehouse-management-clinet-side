@@ -9,6 +9,7 @@ import {
 import auth from "../../../firebase.init";
 import { toast } from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
+import  axios  from 'axios';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -26,16 +27,19 @@ const Login = () => {
     setPassword(event.target.value);
   };
 
-   // redirect 
+   // redirect to the respective location
    let from = location.state?.from?.pathname || "/";
 
   if (user) {
-    navigate(from, { replace: true });
+    // navigate(from, { replace: true });
   }
-
+  
   const handleSignIn = async (event) => {
     event.preventDefault();
     await signInWithEmailAndPassword(email, password);
+    const {data} = await axios.post('http://localhost:5000/login', {email});
+    localStorage.setItem('accessToken', data.accessToken)
+    navigate(from, { replace: true });
     if (email && password) {
       await toast.success("Successfully Login !!!");
     }
