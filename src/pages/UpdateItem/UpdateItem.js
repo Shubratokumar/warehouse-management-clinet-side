@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useItem from "../../hooks/useItem";
-import { AiOutlineRight } from 'react-icons/ai';
-import { toast } from 'react-hot-toast';
+import { AiOutlineRight } from "react-icons/ai";
+import { toast } from "react-hot-toast";
 
 const UpdateItem = () => {
   const [item, setItem] = useItem();
@@ -11,12 +11,12 @@ const UpdateItem = () => {
   const { id } = useParams();
 
   const handleDelivered = (id) => {
-    const { quantity, ...rest} = item;
-    if(quantity > 0){
+    const { quantity, ...rest } = item;
+    if (quantity > 0) {
       const newQuantity = parseInt(quantity) - 1;
-      const newItem = {...rest, quantity: newQuantity};
-      setItem(newItem)
-      const url = `http://localhost:5000/products/${id}`;
+      const newItem = { ...rest, quantity: newQuantity };
+      setItem(newItem);
+      const url = `https://peaceful-basin-80152.herokuapp.com/products/${id}`;
       fetch(url, {
         method: "PUT",
         headers: {
@@ -28,20 +28,20 @@ const UpdateItem = () => {
         .then((data) => {
           console.log(data);
         });
-    } else if(quantity === 0){
-      toast.error("Oops!!! Out of stock")
+    } else if (quantity === 0) {
+      toast.error("Oops!!! Out of stock");
     }
   };
 
-  const handleStockUpdate = (event) =>{
-    event.preventDefault()
+  const handleStockUpdate = (event) => {
+    event.preventDefault();
     const stockQuantity = event.target.quantity.value;
-    const { quantity, ...rest} = item;
-    if(stockQuantity > 0){
+    const { quantity, ...rest } = item;
+    if (stockQuantity > 0) {
       const newQuantity = Number(quantity) + Number(stockQuantity);
-      const newItem = {...rest, quantity: newQuantity};
-      setItem(newItem)   
-      const url = `http://localhost:5000/products/${id}`;
+      const newItem = { ...rest, quantity: newQuantity };
+      setItem(newItem);
+      const url = `https://peaceful-basin-80152.herokuapp.com/products/${id}`;
       fetch(url, {
         method: "PUT",
         headers: {
@@ -52,12 +52,12 @@ const UpdateItem = () => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-        });        
-    } else if (stockQuantity < 0){
-      toast.error("Please provide positive number to update stock.")
+        });
+    } else if (stockQuantity < 0) {
+      toast.error("Please provide positive number to update stock.");
     }
-    event.target.reset()
-  }
+    event.target.reset();
+  };
 
   return (
     <div className="update-container">
@@ -106,14 +106,17 @@ const UpdateItem = () => {
                         aria-describedby="Help"
                       />
                     </div>
-                    <button type="submit" className="btn btn-outline-primary w-100">
+                    <button
+                      type="submit"
+                      className="btn btn-outline-primary w-100"
+                    >
                       Stock Update
                     </button>
                   </form>
                 </div>
                 <div>
                   <button
-                    onClick={()=>handleDelivered(id)}
+                    onClick={() => handleDelivered(id)}
                     className="btn btn-outline-info w-100"
                   >
                     Delivered
@@ -125,7 +128,13 @@ const UpdateItem = () => {
         </div>
       </div>
       <div className="container text-end my-3">
-          <button type='link' onClick={()=> navigate("/manageinventory")} className="oranged-btn">Manage Inventories <AiOutlineRight/></button>
+        <button
+          type="link"
+          onClick={() => navigate("/manageinventory")}
+          className="oranged-btn"
+        >
+          Manage Inventories <AiOutlineRight />
+        </button>
       </div>
     </div>
   );

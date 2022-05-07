@@ -1,35 +1,35 @@
 import React from "react";
-import './Additem.css';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from './../../firebase.init';
-import  axios  from 'axios';
-import { toast } from 'react-hot-toast';
+import "./Additem.css";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "./../../firebase.init";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const AddItem = () => {
-  const [user ] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
-
-  const handleAddInventory = (e) =>{
-      e.preventDefault()
-      const product = {
-          email: user?.email,
-          name: e.target.name.value,
-          description: e.target.description.value,
-          supplier: e.target.supplier.value,
-          price: e.target.price.value,
-          quantity: e.target.quantity.value,
-          sold: e.target.sold.value,
-          image: e.target.image.value
-      }
-      axios.post(`http://localhost:5000/product`, product)
-      .then(response => {
-        const {data} = response;
-        if(data.insertedId){
-          toast.success("Successfully added a new inventory!!!")
+  const handleAddInventory = (e) => {
+    e.preventDefault();
+    const product = {
+      email: user?.email,
+      name: e.target.name.value,
+      description: e.target.description.value,
+      supplier: e.target.supplier.value,
+      price: e.target.price.value,
+      quantity: e.target.quantity.value,
+      sold: e.target.sold.value,
+      image: e.target.image.value,
+    };
+    axios
+      .post(`https://peaceful-basin-80152.herokuapp.com/product`, product)
+      .then((response) => {
+        const { data } = response;
+        if (data.insertedId) {
+          toast.success("Successfully added a new inventory!!!");
         }
-      })
-      e.target.reset()    
-  }
+      });
+    e.target.reset();
+  };
   return (
     <div className="add-container py-5">
       <div className="container">
@@ -37,9 +37,7 @@ const AddItem = () => {
         <div className="form-container w-50 mx-auto my-4 shadow p-4 rounded">
           <form onSubmit={handleAddInventory}>
             <div className="mb-3">
-              <label className="form-label">
-                Your Email
-              </label>
+              <label className="form-label">Your Email</label>
               <input
                 type="text"
                 value={user?.email}
@@ -49,9 +47,7 @@ const AddItem = () => {
               />
             </div>
             <div className="mb-3">
-              <label className="form-label">
-                Product Name
-              </label>
+              <label className="form-label">Product Name</label>
               <input
                 type="text"
                 name="name"
@@ -60,9 +56,7 @@ const AddItem = () => {
               />
             </div>
             <div className="mb-3">
-              <label className="form-label">
-                Description
-              </label>
+              <label className="form-label">Description</label>
               <textarea
                 type="text"
                 name="description"
@@ -71,9 +65,7 @@ const AddItem = () => {
               />
             </div>
             <div className="mb-3">
-              <label className="form-label">
-                Supplier Name
-              </label>
+              <label className="form-label">Supplier Name</label>
               <input
                 type="text"
                 name="supplier"
@@ -82,9 +74,7 @@ const AddItem = () => {
               />
             </div>
             <div className="mb-3">
-              <label className="form-label">
-                Price
-              </label>
+              <label className="form-label">Price</label>
               <input
                 type="number"
                 name="price"
@@ -93,9 +83,7 @@ const AddItem = () => {
               />
             </div>
             <div className="mb-3">
-              <label className="form-label">
-                Quantity
-              </label>
+              <label className="form-label">Quantity</label>
               <input
                 type="number"
                 name="quantity"
@@ -104,9 +92,7 @@ const AddItem = () => {
               />
             </div>
             <div className="mb-3">
-              <label className="form-label">
-                Sold
-              </label>
+              <label className="form-label">Sold</label>
               <input
                 type="number"
                 name="sold"
@@ -115,9 +101,7 @@ const AddItem = () => {
               />
             </div>
             <div className="mb-3">
-              <label className="form-label">
-                Image Url
-              </label>
+              <label className="form-label">Image Url</label>
               <input
                 type="text"
                 name="image"

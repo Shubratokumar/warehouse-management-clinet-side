@@ -4,8 +4,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { AiOutlineDelete } from "react-icons/ai";
-import { useNavigate } from 'react-router-dom';
-import { signOut } from 'firebase/auth';
+import { useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
 
 const MyItems = () => {
   const [products, setProducts] = useState([]);
@@ -16,31 +16,30 @@ const MyItems = () => {
     const email = user?.email;
     // using IIFE
     (async () => {
-      const url = `http://localhost:5000/product?email=${email}`;
-      try{
+      const url = `https://peaceful-basin-80152.herokuapp.com/product?email=${email}`;
+      try {
         const { data } = await axios.get(url, {
           headers: {
-            authorization: `Bearer ${localStorage.getItem('accessToken')}`
-          }
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
         });
         setProducts(data);
-      }
-      catch(error){
-        if(error.response.status === 401 || error.response.status === 403){
+      } catch (error) {
+        if (error.response.status === 401 || error.response.status === 403) {
           toast.error(error.message);
           signOut(auth);
           navigate("/login");
         }
       }
     })();
-  }, [user,navigate]);
+  }, [user, navigate]);
 
   const handleRemove = (id) => {
     const removeProduct = window.confirm(
       `Are you sure to remove this inventory ?`
     );
     if (removeProduct) {
-      const url = `http://localhost:5000/product/${id}`;
+      const url = `https://peaceful-basin-80152.herokuapp.com/product/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -58,9 +57,7 @@ const MyItems = () => {
   return (
     <div>
       <div className="container my-3">
-        <h2 className="text-center text-info my-5">
-          My Products
-        </h2>
+        <h2 className="text-center text-info my-5">My Products</h2>
         <div className="table-responsive">
           <table className="table align-middle table-hover ">
             <thead className="table-dark">
@@ -70,6 +67,7 @@ const MyItems = () => {
                 <th scope="col">Supplier</th>
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
+                <th scope="col">Update</th>
                 <th scope="col">Remove</th>
               </tr>
             </thead>
@@ -84,6 +82,14 @@ const MyItems = () => {
                     <td>{product.supplier}</td>
                     <td>$ {product.price}</td>
                     <td>{product.quantity}</td>
+                    <td>
+                      <button
+                        className="oranged-btn"
+                        onClick={() => navigate(`/inventory/${product._id}`)}
+                      >
+                        Update stock
+                      </button>
+                    </td>
                     <td>
                       <button
                         className="oranged-btn"

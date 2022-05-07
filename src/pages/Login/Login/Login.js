@@ -9,7 +9,7 @@ import {
 import auth from "../../../firebase.init";
 import { toast } from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
-import  axios  from 'axios';
+import axios from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -18,7 +18,7 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
   const navigate = useNavigate();
-  const location = useLocation()
+  const location = useLocation();
 
   const handleEmailBlur = (event) => {
     setEmail(event.target.value);
@@ -27,18 +27,21 @@ const Login = () => {
     setPassword(event.target.value);
   };
 
-   // redirect to the respective location
-   let from = location.state?.from?.pathname || "/";
+  // redirect to the respective location
+  let from = location.state?.from?.pathname || "/";
 
   if (user) {
     // navigate(from, { replace: true });
   }
-  
+
   const handleSignIn = async (event) => {
     event.preventDefault();
     await signInWithEmailAndPassword(email, password);
-    const {data} = await axios.post('http://localhost:5000/login', {email});
-    localStorage.setItem('accessToken', data.accessToken)
+    const { data } = await axios.post(
+      "https://peaceful-basin-80152.herokuapp.com/login",
+      { email }
+    );
+    localStorage.setItem("accessToken", data.accessToken);
     navigate(from, { replace: true });
     if (email && password) {
       await toast.success("Successfully Login !!!");
@@ -47,6 +50,7 @@ const Login = () => {
       await toast.error("Oops!!! There is an error.");
     }
   };
+  
   const resetPassword = async () => {
     if (email) {
       await sendPasswordResetEmail(email);
