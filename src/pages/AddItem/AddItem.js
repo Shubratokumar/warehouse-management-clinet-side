@@ -34,7 +34,7 @@ const AddItem = () => {
     <div className="add-container py-5">
       <div className="container">
         <h2 className="text-center text-white my-5">Add A New Inventory</h2>
-        <div className="form-container w-50 mx-auto my-4 shadow p-4 rounded">
+        <div className="form-container mx-auto my-4 shadow p-4 rounded">
           <form onSubmit={handleAddInventory}>
             <div className="mb-3">
               <label className="form-label">Your Email</label>
@@ -109,7 +109,7 @@ const AddItem = () => {
                 required
               />
             </div>
-            <div className="text-end me-5">
+            <div className="text-end me-2">
               <button type="submit" className="white-btn">
                 Add Inventory
               </button>

@@ -4,4 +4,12 @@
 }
 .form-container{
     background-color: #FFEEEE;
+    width: 50%;
+}
+
+/* responsiveness for  mobile device */
+@media only screen and (max-width : 576px) {
+    .form-container{
+        width: 85%;
+    }
 }

@@ -51,7 +51,6 @@ const UpdateItem = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
         });
     } else if (stockQuantity < 0) {
       toast.error("Please provide positive number to update stock.");
@@ -64,7 +63,7 @@ const UpdateItem = () => {
       <div className="container my-3">
         <div className="row">
           <div className="col-12 col-lg-6 align-self-center py-3 my-3 rounded">
-            <img src={image} alt="" className="img-fluid rounded-3 shadow" />
+            <img src={image} alt="" className="w-100 rounded-3 shadow" />
           </div>
           <div className="col-12 col-lg-6">
             <div className="card h-100">
