@@ -14,6 +14,18 @@ const RequireAuth = ({ children }) => {
     if (!user) {
         return <Navigate to="/login" state={{ from: location }} replace />;
       }
+    
+    if (!user.emailVerified) {
+        return (
+        <div style={{'height': "400px"}} className="d-flex justify-content-center align-items-center">
+            <div className="text-center">
+                <h3 className="text-danger py-3">Your Email address is not verified !</h3>
+                <h5 className="text-info pb-3">Please verify your email first !</h5>
+                <button className='oranged-btn'>Send me verification email again</button>
+            </div>
+        </div>
+        )
+    }  
     return children
 };
 

@@ -26,7 +26,7 @@ const Register = () => {
   };
   const handleConfirmPasswordBlur = (e) => {
     setConfirmPassword(e.target.value);
-  };
+  };  
 
   const handleRegister = async(event) =>{
     event.preventDefault();

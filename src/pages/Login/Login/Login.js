@@ -16,7 +16,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [signInWithEmailAndPassword, user, error] =
     useSignInWithEmailAndPassword(auth);
-  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth); 
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -28,11 +28,7 @@ const Login = () => {
   };
 
   // redirect to the respective location
-  let from = location.state?.from?.pathname || "/";
-
-  if (user) {
-    // navigate(from, { replace: true });
-  }
+  let from = location.state?.from?.pathname || "/";    
 
   const handleSignIn = async (event) => {
     event.preventDefault();
