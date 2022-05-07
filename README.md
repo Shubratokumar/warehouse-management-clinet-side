@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Apex Warehouse Management
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Site : https://warehouse-management-df7a0.web.app/
 
-## Available Scripts
+Description : Apex Warehouse Management is a warehouse management web app. Basically AWM work to mange smart gadgets as well as electronics. By using this app you will able to see the inventory products which are available in our stocks or warehouse. An authorized user can able to access manage inventories, update, add and also remove an inventory. Authorized user also able to see his or her added inventoris in My Items route. 
 
-In the project directory, you can run:
+## Website Features
+- Apex Warehouse Management is a Warehhouse Mangement web app.
+- For UI Design used React JS.
+- Used firebase for auththentication and cient side hosting.
+- Used Heroku for server side hosting.
+- This is a SPA (Single Page Application) web application.
+- In navbar you can see active link to know where you are now.
+- In navbar you able to see the name of a logged in user also can profile picture if user has logged with social accounts.
+- Used React Icons for fancy icons.
+- Used MongoBD as the server of this web app.
+- Home section you will able to see only 06 inventory products.
+- In Manage Inventories section you will see all inventory items. This is a protected route.
+- Only verified user will able to access Manage Inventories, Update stock, Add a Inventory and My items route.
+- If user has the token then user can access and see My Items otherwise logged out the user and redirect to the login page.
+- In blogs route you will see 3 questions and their answers.
+- Has a fancy 404 page. 
+- 404 page will show when Route does't matched.
 
-### `npm start`
+## Used Technologies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Client Side
+- React JS,
+- React Router,
+- Firebase,
+- React hot toast,
+- React firebase hooks,
+- Bootstrap,
+- React Bootstrap,
+- React Icons,
+- Axios
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Server Side 
+- Node JS,
+- Express JS,
+- MongoDB,
+- Cors,
+- Dotenv,
+- Nodemon,
+- Jsonwebtoken
